@@ -2,7 +2,7 @@ var intro = document.querySelectorAll('.intro');
 var body = document.getElementById("body");
 var introH1 = document.getElementById("pablo-duran-intro-h1");
 body.style.overflowY = 'scroll';
-/*
+
 document.addEventListener("DOMContentLoaded", function() {
     
     setTimeout(function (){  
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         body.style.overflowY = 'scroll';
     }, 4500);
 });
-*/
+
 
 
 $(document).ready(function(){
