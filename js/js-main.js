@@ -3,6 +3,7 @@ var body = document.getElementById("body");
 var introH1 = document.getElementById("pablo-duran-intro-h1");
 body.style.overflowY = 'scroll';
 
+
 document.addEventListener("DOMContentLoaded", function() {
     
     setTimeout(function (){  
@@ -83,13 +84,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for (let i = 0; i < imgMenu.length; i++){
         liMenu[i].addEventListener('mouseenter', function() {
-            imgMenu[i].style.filter = 'brightness(1)';
 
+            liMenu.forEach(li => {
+                li.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            });
+            imgMenu.forEach(img => {
+                img.style.filter = 'brightness(0)';
+            });
+
+            imgMenu[i].style.filter = 'brightness(1)';
+            liMenu[i].style.backgroundColor = 'rgba(0, 0, 0, 0.082)';
         });
     
         liMenu[i].addEventListener('mouseleave', function() {
         // Se ejecuta cuando el mouse sale del elemento
             imgMenu[i].style.filter = 'brightness(0)';
+            checkVisibility();
         });
     }
 
@@ -110,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 var boundingContainer = container[i].getBoundingClientRect();
                 var iAnt = i - 1;
 
-            if (boundingContainer.top >= 0 && boundingContainer.top <= windowHeight - 500){
+            if ((boundingContainer.top >= 0 && boundingContainer.top <= windowHeight - 300 ) || (boundingContainer.bottom >= 0 && boundingContainer.bottom <= windowHeight)){
                 
                 imgMenu[i].style.filter = 'brightness(1)';
                 liMenu[i].style.backgroundColor = 'rgba(0, 0, 0, 0.082)';
