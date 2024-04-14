@@ -1,14 +1,18 @@
 var intro = document.querySelectorAll('.intro');
 var body = document.getElementById("body");
 var introH1 = document.getElementById("pablo-duran-intro-h1");
+var all = document.querySelector('.all-content');
+var header = document.getElementById("header");
+var buttonMenuFixed = document.querySelector('.button-menu-fixed');
+
 body.style.overflowY = 'scroll';
 
-
+/*
 document.addEventListener("DOMContentLoaded", function() {
     
     setTimeout(function (){  
         document.body.scrollIntoView(true);
-
+        body.style.overflowY = 'hidden';
     }, 150);
     
 
@@ -32,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 4500);
 });
 
-
+*/
 
 $(document).ready(function(){
     var ir_a = $(".desplazar");  //Declaramos variable ir_a y le decimos que su valor es la clase .desplazar
@@ -47,8 +51,26 @@ $(document).ready(function(){
     })
 });
 
+//---------------------------button menu---------------------------------
 
-//--------------------Projects-------------------------
+const button = document.querySelector('button');
+
+button.addEventListener('click', () => {
+    if (!button.classList.contains('activo')){
+        header.style.transform = 'translateX(0)';
+        all.style.filter = 'blur(3px) grayscale()'
+    }else{
+        header.style.transform = 'translateX(-200px)';
+        all.style.filter = 'none';
+    }
+
+    button.classList.toggle('activo');
+    
+});
+
+//----------------------END menu------------------------
+
+//-----------------------------Projects-----------------------------------
 var projectInfo = document.querySelectorAll('.projects-container-info');
 var projectButton = document.querySelectorAll('.projects-container-button');
 var arrowUp = document.querySelectorAll('.fa-angles-up');
@@ -105,10 +127,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function checkVisibility(){
 
+        //------menu-------
+        all.style.filter = 'none';
+        button.classList.remove('activo');
+        if (windowWidth < 1150){
+            buttonMenuFixed.style.display = 'block';
+            header.style.transform = 'translateX(-200px)';
+            all.style.marginLeft = '0';
+        }else{
+            header.style.transform = 'translateX(0)';
+            all.style.marginLeft = '200px';
+            buttonMenuFixed.style.display = 'none';
+        }
+        //.....menu.....
+
+
         imgMenu.forEach(img => {                    //desactivo todos los elementos del menu
             img.style.filter = 'brightness(0)';
         });
-
 
 
         liMenu.forEach(li => {                    //desactivo todos los elementos del menu
@@ -147,6 +183,43 @@ document.addEventListener("DOMContentLoaded", function() {
 //---------------------Fin Animación MENU-----------------------------
 
 
+//---------------------------Start education button-------------------------------
+
+document.addEventListener("DOMContentLoaded", function() { 
+    var educationButtons = document.querySelectorAll('.flecha-education');
+    var evidences = document.querySelectorAll('.evidence-education-all');
+    var cruz = document.querySelectorAll('.fa-xmark');
+
+
+    for (let i = 0; i < educationButtons.length; i++){
+        educationButtons[i].addEventListener("click", function() {
+            evidences[i].style.display = 'flex';
+            setTimeout(function (){  
+                evidences[i].style.opacity = '1';
+            }, 100);
+
+        });
+
+        cruz[i].addEventListener("click", cerrarVentana);
+        evidences[i].addEventListener("click", cerrarVentana);
+        
+
+        function cerrarVentana(){
+            evidences[i].style.opacity = '0';
+            setTimeout(function (){  
+                evidences[i].style.display = 'none';
+            }, 600);
+        }
+
+
+    }
+
+});
+
+//---------------------End education button----------------------------
+
+
+
 
 
 //--------------------Movimientos Pagina-----------------------------
@@ -156,9 +229,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var windowHeight = window.innerHeight;
     var windowWidth = window.innerWidth;
+    
 
     function checkVisibility(){
-
+        var scrollY = window.scrollY;
+        if (scrollY <= 1 && windowWidth < 1150 && windowWidth > 550){
+            buttonMenuFixed.style.opacity = '0';
+            header.style.transform = 'translateX(0)';
+        }else if (scrollY >= 0 && windowWidth > 1150 && windowWidth > 550){
+            
+        }else{
+            header.style.transform = 'translateX(-200px)';
+            all.style.marginLeft = '0';
+            buttonMenuFixed.style.opacity = '1';
+        }
+        
 
         for (let i = 0; i < titleH1.length; i++){
             var boundingtitleH1 = titleH1[i].getBoundingClientRect();
