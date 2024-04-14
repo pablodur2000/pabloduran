@@ -4,12 +4,12 @@ var introH1 = document.getElementById("pablo-duran-intro-h1");
 var all = document.querySelector('.all-content');
 var header = document.getElementById("header");
 var buttonMenuFixed = document.querySelector('.button-menu-fixed');
+var windowWidthStart = window.innerWidth;
 
 body.style.overflowY = 'scroll';
-
 /*
 document.addEventListener("DOMContentLoaded", function() {
-    
+    buttonMenuFixed.style.opacity = '0';
     setTimeout(function (){  
         document.body.scrollIntoView(true);
         body.style.overflowY = 'hidden';
@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
 
     setTimeout(function (){  
-        introH1.style.top = '2%';
-        introH1.style.left = '2%'
+        introH1.style.top = '25px';
+        introH1.style.left = '25px';
         introH1.style.transform = 'translate(0)';
         introH1.style.fontSize = '45px';
     }, 800);
@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 3500);
     setTimeout(function (){  
         body.style.overflowY = 'scroll';
+        intro.style.display = 'none'
     }, 4500);
 });
 
@@ -100,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var imgMenu = document.querySelectorAll('.img-menu');
     var liMenu = document.querySelectorAll('.li-menu');
     var container = document.querySelectorAll('.container');
+    var pabloDuranMenu = document.querySelector('.pablo-duran-menu');
 
     var windowHeight = window.innerHeight;
     var windowWidth = window.innerWidth;
@@ -131,10 +133,14 @@ document.addEventListener("DOMContentLoaded", function() {
         all.style.filter = 'none';
         button.classList.remove('activo');
         if (windowWidth < 1150){
-            buttonMenuFixed.style.display = 'block';
+            pabloDuranMenu.style.display = 'none';
+            header.style.marginTop = '90px';
+            buttonMenuFixed.style.display = 'flex';
             header.style.transform = 'translateX(-200px)';
             all.style.marginLeft = '0';
         }else{
+            pabloDuranMenu.style.display = 'flex';
+            header.style.marginTop = '0';
             header.style.transform = 'translateX(0)';
             all.style.marginLeft = '200px';
             buttonMenuFixed.style.display = 'none';
@@ -226,7 +232,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() { 
     var titleH1 = document.querySelectorAll('.title-h1');
-
     var windowHeight = window.innerHeight;
     var windowWidth = window.innerWidth;
     
@@ -236,12 +241,19 @@ document.addEventListener("DOMContentLoaded", function() {
         if (scrollY <= 1 && windowWidth < 1150 && windowWidth > 550){
             buttonMenuFixed.style.opacity = '0';
             header.style.transform = 'translateX(0)';
+            header.style.marginTop = '0';
         }else if (scrollY >= 0 && windowWidth > 1150 && windowWidth > 550){
             
         }else{
-            header.style.transform = 'translateX(-200px)';
+            header.style.transform = 'translateX(-200px)';                                      //TImer 
             all.style.marginLeft = '0';
-            buttonMenuFixed.style.opacity = '1';
+                header.style.marginTop = '90px';
+  
+            
+            setTimeout(function (){  
+                buttonMenuFixed.style.opacity = '1';
+            }, 1);
+            
         }
         
 
