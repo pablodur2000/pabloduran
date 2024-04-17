@@ -190,10 +190,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //---------------------------Start education button-------------------------------
-
+var evidences = document.querySelectorAll('.evidence-education-all');
 document.addEventListener("DOMContentLoaded", function() { 
     var educationButtons = document.querySelectorAll('.flecha-education');
-    var evidences = document.querySelectorAll('.evidence-education-all');
     var cruz = document.querySelectorAll('.fa-xmark');
 
 
