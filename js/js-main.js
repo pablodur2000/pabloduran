@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function checkVisibility(){
-
+        var container = document.querySelectorAll('.container');
         //------menu-------
         all.style.filter = 'none';
         button.classList.remove('activo');
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 var boundingContainer = container[i].getBoundingClientRect();
                 var iAnt = i - 1;
 
-            if ((boundingContainer.top >= 0 && boundingContainer.top <= windowHeight - 300 ) || (boundingContainer.bottom >= 0 && boundingContainer.bottom <= windowHeight)){
+            if (boundingContainer.top < windowHeight && boundingContainer.bottom > 0){
                 
                 imgMenu[i].style.filter = 'brightness(1)';
                 liMenu[i].style.backgroundColor = 'rgba(0, 0, 0, 0.082)';
@@ -191,22 +191,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //---------------------------Start education button-------------------------------
 var evidences = document.querySelectorAll('.evidence-education-all');
+
 document.addEventListener("DOMContentLoaded", function() { 
     var educationButtons = document.querySelectorAll('.flecha-education');
     var cruz = document.querySelectorAll('.fa-xmark');
+    var buttonsNewWindows = document.querySelectorAll('.evidence-new-window-button');
 
+    
+    for (let i = 0; i < buttonsNewWindows.length; i++){
+        buttonsNewWindows[i].addEventListener("click", function() {
+            var imgSrc = evidences[i].querySelector('img').src;
+            window.open(imgSrc, '_blank');
+        });
+    }
 
     for (let i = 0; i < educationButtons.length; i++){
         educationButtons[i].addEventListener("click", function() {
-            evidences[i].style.display = 'flex';
-            setTimeout(function (){  
-                evidences[i].style.opacity = '1';
-            }, 100);
+            if (i == 3){
+                window.open("https://credentials.englishonline.britishcouncil.org/profile/eu-pablodurnponzoni396148/wallet", '_blank');
+            }else{
+                evidences[i].style.display = 'flex';
+                setTimeout(function (){  
+                    evidences[i].style.opacity = '1';
+                }, 100);
+            }
+           
 
         });
 
         cruz[i].addEventListener("click", cerrarVentana);
-        evidences[i].addEventListener("click", cerrarVentana);
+        //evidences[i].addEventListener("click", cerrarVentana);
         
 
         function cerrarVentana(){
