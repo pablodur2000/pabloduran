@@ -27,6 +27,7 @@ body{
     position: relative;
     z-index: 1;
     background-color: black;
+    overflow-x: hidden;
 }
 
 .all-content{
@@ -51,7 +52,7 @@ body{
     background-color: aliceblue;
     z-index: 999;
     opacity: 1;
-    display: none;
+
 
     transition: all 1.2s ease;
 }
@@ -647,10 +648,9 @@ header{
 
 .container-skills-individual h2{
     height: 45px;
-    width: 70%;
     display: flex;
+    min-width: 50%;
     align-items: flex-end;
-    padding-bottom: 6px;
     justify-content: center;
     border-bottom: 2px solid black;
     font-size: 20px;

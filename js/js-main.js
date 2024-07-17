@@ -6,8 +6,7 @@ var header = document.getElementById("header");
 var buttonMenuFixed = document.querySelector('.button-menu-fixed');
 var windowWidthStart = window.innerWidth;
 
-body.style.overflowY = 'scroll';
-/*
+//body.style.overflowY = 'scroll';
 document.addEventListener("DOMContentLoaded", function() {
     buttonMenuFixed.style.opacity = '0';
     setTimeout(function (){  
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 4500);
 });
 
-*/
+
 
 $(document).ready(function(){
     var ir_a = $(".desplazar");  //Declaramos variable ir_a y le decimos que su valor es la clase .desplazar
