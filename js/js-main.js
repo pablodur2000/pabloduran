@@ -5,16 +5,31 @@ var all = document.querySelector('.all-content');
 var header = document.getElementById("header");
 var buttonMenuFixed = document.querySelector('.button-menu-fixed');
 var windowWidthStart = window.innerWidth;
+const divPrueba = document.querySelectorAll('.div-prueba');
+const projectH2 = document.getElementsByClassName("project-h2")
+
+
+divPrueba.forEach((div, index) => {
+    div.addEventListener('click', () =>{
+        let title = projectH2[index].getAttribute("alt")
+        console.log("titulo: " + title);
+        localStorage.setItem("project", title);
+        window.location.href = "projects.html";
+    });
+});
 
 //body.style.overflowY = 'scroll';
 document.addEventListener("DOMContentLoaded", function() {
+    
+    body.style.overflowY = 'scroll';
+    intro[0].style.display = 'none';
+    /*
     buttonMenuFixed.style.opacity = '0';
     setTimeout(function (){  
         document.body.scrollIntoView(true);
         body.style.overflowY = 'hidden';
     }, 150);
     
-
     setTimeout(function (){  
         introH1.style.top = '25px';
         introH1.style.left = '25px';
@@ -33,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function (){  
         body.style.overflowY = 'scroll';
         intro.style.display = 'none'
-    }, 4500);
+    }, 4500);*/
 });
 
 
@@ -68,6 +83,32 @@ button.addEventListener('click', () => {
     
 });
 
+if (window.location.pathname === '/index.html'){
+    const curriculumButton = document.getElementById("curriculum-button");
+    const ButtonClose = document.getElementById("curriculum-button-close");
+    const curriculumContainer = document.getElementById("curriculum-container");
+
+    curriculumButton.addEventListener('click', () =>{
+
+        curriculumContainer.style.display = 'flex';
+        if (window.innerWidth < 1150){
+            header.style.transform = 'translateX(-200px)';
+            all.style.filter = 'none';
+        }
+        
+        setTimeout(function (){  
+            curriculumContainer.style.opacity = '1';
+        }, 100);
+
+        ButtonClose.addEventListener('click', () =>{
+            curriculumContainer.style.opacity = '0';
+            setTimeout(function (){  
+                curriculumContainer.style.display = 'none';
+            }, 600);
+        });
+    });
+}
+
 //----------------------END menu------------------------
 
 //-----------------------------Projects-----------------------------------
@@ -76,7 +117,7 @@ var projectButton = document.querySelectorAll('.projects-container-button');
 var arrowUp = document.querySelectorAll('.fa-angles-up');
 var arrowDown = document.querySelectorAll('.fa-angles-down');
 
-
+/*
 for (let i = 0; i < projectButton.length; i++){
     projectButton[i].addEventListener("click", function () {
         projectInfo[i].classList.toggle("projects-container-info_active");
@@ -90,7 +131,7 @@ for (let i = 0; i < projectButton.length; i++){
         }
     });
 }
-
+*/
 //-----------End projects-------
 
 
@@ -99,7 +140,7 @@ for (let i = 0; i < projectButton.length; i++){
 document.addEventListener("DOMContentLoaded", function() {
     var imgMenu = document.querySelectorAll('.img-menu');
     var liMenu = document.querySelectorAll('.li-menu');
-    var container = document.querySelectorAll('.container');
+    //var container = document.querySelectorAll('.container');
     var pabloDuranMenu = document.querySelector('.pablo-duran-menu');
 
     var windowHeight = window.innerHeight;
@@ -156,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
             li.style.backgroundColor = 'rgba(0, 0, 0, 0)';
         });
 
-        for (let i = 0; i < imgMenu.length; i++){
+        for (let i = 0; i < 4; i++){
   
                 var boundingContainer = container[i].getBoundingClientRect();
                 var iAnt = i - 1;
@@ -189,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //---------------------------Start education button-------------------------------
-var evidences = document.querySelectorAll('.evidence-education-all');
+var curriculumButtonClose = document.querySelectorAll('.evidence-education-all');
 
 document.addEventListener("DOMContentLoaded", function() { 
     var educationButtons = document.querySelectorAll('.flecha-education');
@@ -199,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     for (let i = 0; i < buttonsNewWindows.length; i++){
         buttonsNewWindows[i].addEventListener("click", function() {
-            var imgSrc = evidences[i].querySelector('img').src;
+            var imgSrc = curriculumButtonClose[i].querySelector('img').src;
             window.open(imgSrc, '_blank');
         });
     }
@@ -208,10 +249,13 @@ document.addEventListener("DOMContentLoaded", function() {
         educationButtons[i].addEventListener("click", function() {
             if (i == 3){
                 window.open("https://credentials.englishonline.britishcouncil.org/profile/eu-pablodurnponzoni396148/wallet", '_blank');
-            }else{
-                evidences[i].style.display = 'flex';
+            }else if (i == 0){
+                window.open("https://github.com/pablodur2000/credenciales/tree/main/Electr%C3%B3nica", '_blank');
+            }
+            else{
+                curriculumButtonClose[i].style.display = 'flex';
                 setTimeout(function (){  
-                    evidences[i].style.opacity = '1';
+                    curriculumButtonClose[i].style.opacity = '1';
                 }, 100);
             }
            
@@ -223,9 +267,9 @@ document.addEventListener("DOMContentLoaded", function() {
         
 
         function cerrarVentana(){
-            evidences[i].style.opacity = '0';
+            curriculumButtonClose[i].style.opacity = '0';
             setTimeout(function (){  
-                evidences[i].style.display = 'none';
+                curriculumButtonClose[i].style.display = 'none';
             }, 600);
         }
 
@@ -250,7 +294,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function checkVisibility(){
         var scrollY = window.scrollY;
-        if (scrollY <= 1 && windowWidth < 1150 && windowWidth > 550){
+        const location = window.location.pathname;
+        if (scrollY <= 1 && windowWidth < 1150 && windowWidth > 550 && location === '/index.html'){
             buttonMenuFixed.style.opacity = '0';
             header.style.transform = 'translateX(0)';
             header.style.marginTop = '0';

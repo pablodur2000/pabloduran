@@ -1,0 +1,29 @@
+
+{
+    "barberia":{
+        "id":"barberia",
+        "title":"Barbería Salón Caporale",
+        "description":"Este proyecto, realizado para Salón Caporale, ubicado en Paysandú, Uruguay, se centró en la creación de un sitio web moderno, funcional y optimizado para la experiencia del usuario. El objetivo principal fue reflejar la esencia y profesionalismo del salón, permitiendo a los clientes acceder fácilmente a información sobre servicios, horarios y ubicación. Se incluyó un sistema de reservas en línea desarrollado por Lucas Cíceri (Bookit), para mejorar la eficiencia y comodidad tanto para los clientes como para el personal del salón.<br> Además, se incluyó una sección de testimonios para destacar las opiniones positivas de los clientes. Durante el proceso de desarrollo, se puso especial énfasis en el diseño responsivo, asegurando que el sitio web funcione perfectamente en dispositivos móviles y de escritorio.",
+        "tecnologies":["icon-html5.png","icon-css.png","icon-javascript.png"],
+        "video":"video/caporale-site-video.mp4",
+        "link":"https://saloncaporale.com"
+    },
+
+    "vivero":{
+        "id":"vivero",
+        "title":"Vivero Yaxche",
+        "description":"La página del Vivero Yaxché, es una página de práctica, un regalo para un amigo. Cuenta con una guía de cultivo integral para aficionados en jardinería. También cuenta con imágenes del vivero, detalles de los servicios que se brindan y mas! (Aún en desarrollo)",
+        "tecnologies":["icon-html5.png","icon-css.png","icon-javascript.png"],
+        "video":"video/vivero-site-video.mp4",
+        "link":"https://pablodur2000.github.io/viveroyaxche.github.io/"
+    },
+
+    "budabai":{
+        "id":"budabai",
+        "title":"Centro de Yoga BudaBai",
+        "description":"Desarrollé un sistema de gestión de reservas pensado para centros de bienestar y yoga en Uruguay, donde la organización y la facilidad de uso son clave para brindar un servicio de calidad. Este proyecto integra la tecnología de Firebase y Google Sheets, permitiendo una administración eficiente de reservas tanto individuales como grupales, con funcionalidades adaptadas a las necesidades específicas del cliente. <br> <br>El sistema permite gestionar reservas de manera dinámica y flexible. Para las sesiones de masaje, los usuarios pueden seleccionar horarios específicos, los cuales están organizados en franjas horarias que pueden ser modificadas directamente desde Google Sheets. Esto significa que el administrador puede ajustar los horarios disponibles en tiempo real, sin necesidad de conocimientos técnicos, simplemente editando una planilla. Además, las reservas se almacenan en Firebase, lo que asegura que los datos estén siempre actualizados y disponibles en la nube. Para las clases de yoga, que suelen ser en grupo, el sistema permite reservas grupales. Los usuarios pueden inscribirse en una clase, y la planilla en Sheets se actualiza automáticamente con las nuevas inscripciones, permitiendo al administrador llevar un control preciso del cupo disponible. <br> <br>Un aspecto destacable del sistema es la capacidad de eliminar reservas de manera sencilla y rápida. El administrador, desde la planilla de Google Sheets, puede seleccionar una reserva específica y eliminarla, lo cual actualiza automáticamente la base de datos en Firebase. Además, implementé un sistema de filtros en Sheets que permite ordenar y visualizar las reservas con mas facilidad",
+        "tecnologies":["icon-sheets.png","icon-firebase.png","icon-javascript.png"],
+        "video":"video/budabai-site-video.mp4",
+        "link":"https://budabai.webflow.io/"
+    }
+}
